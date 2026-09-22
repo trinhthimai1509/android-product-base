@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!--
+      Declared by the capability that needs them, so that including this module is all a product
+      has to do, and excluding it removes the permissions from the merged manifest.
+      INTERNET is required for any HTTP call; ACCESS_NETWORK_STATE for NetworkMonitor.
+      Both are normal permissions: no runtime request, no permission dialog.
+    -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+</manifest>

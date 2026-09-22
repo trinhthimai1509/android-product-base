@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--
+      Mechanism strings only: the theme rows this base owns, because it also owns ThemeMode and
+      ProductBaseTheme. Every other row is labelled by the product, which is why there is no
+      "Rate this app", no "Share", no "Privacy policy" and no "Premium" string here.
+    -->
+    <string name="pb_settings_theme_light">Light</string>
+    <string name="pb_settings_theme_dark">Dark</string>
+    <string name="pb_settings_theme_system">Follow system</string>
+    <string name="pb_settings_dynamic_colour">Dynamic colour</string>
+    <string name="pb_settings_dynamic_colour_subtitle">Use wallpaper colours where the device supports it</string>
+    <string name="pb_settings_dynamic_colour_unsupported">Requires Android 12 or later</string>
+</resources>

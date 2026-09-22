@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Pre-Android-12 counterpart of data_extraction_rules.xml. Redundant while
+  android:allowBackup is false, but stated explicitly so the intent survives a future change
+  to that attribute.
+-->
+<full-backup-content>
+    <exclude
+        domain="root"
+        path="." />
+</full-backup-content>

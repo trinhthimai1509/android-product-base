@@ -1,0 +1,48 @@
+# --- Build output -----------------------------------------------------------
+build/
+/captures
+.cxx
+.externalNativeBuild
+
+# --- Gradle -----------------------------------------------------------------
+.gradle/
+!gradle/wrapper/gradle-wrapper.jar
+!gradle/wrapper/gradle-wrapper.properties
+
+# --- Kotlin -----------------------------------------------------------------
+.kotlin/
+
+# --- IDE --------------------------------------------------------------------
+*.iml
+.idea/
+
+# --- Local machine configuration --------------------------------------------
+local.properties
+
+# --- SECRETS: never commit any of these -------------------------------------
+# Signing
+*.jks
+*.keystore
+keystore.properties
+signing.properties
+
+# Service configuration containing project identifiers / API keys
+google-services.json
+GoogleService-Info.plist
+
+# Ad network, backend and CI credentials
+secrets.properties
+ads.properties
+*.env
+.env
+.env.*
+service-account*.json
+play-publisher*.json
+
+# --- OS ---------------------------------------------------------------------
+.DS_Store
+Thumbs.db
+
+# --- Misc -------------------------------------------------------------------
+*.log
+*.hprof

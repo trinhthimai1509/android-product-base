@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--
+      Every user-facing string in the demo lives here. Components in core:designsystem take
+      already-resolved text, so translation stays a per-product concern.
+    -->
+    <string name="app_name">Product Base Demo</string>
+
+    <!-- Navigation -->
+    <string name="navigate_back">Navigate up</string>
+
+    <!-- Home -->
+    <string name="home_title">Product Base</string>
+    <string name="home_intro">A verification shell for the Android Product Base. It is not a product, and nothing here should grow into one.</string>
+    <string name="home_phase">Phase 5 — the product shell: onboarding, settings, theme, review and sharing.</string>
+    <string name="home_section_ui">User interface</string>
+    <string name="home_section_capabilities">Capabilities</string>
+    <string name="home_open_catalog">Design system catalog</string>
+    <string name="home_open_catalog_subtitle">Every component in core:designsystem</string>
+    <string name="home_open_settings">Settings</string>
+    <string name="home_open_settings_subtitle">feature:settings, composed from the capabilities this demo includes</string>
+    <string name="home_open_data">Local database</string>
+    <string name="home_open_data_subtitle">Room, through core:database</string>
+    <string name="home_open_network">Network</string>
+    <string name="home_open_network_subtitle">Connectivity and a sample request, through core:network</string>
+    <string name="home_open_infra">Telemetry and reminders</string>
+    <string name="home_open_infra_subtitle">core:telemetry and core:notification</string>
+
+    <!-- Local database -->
+    <string name="data_title">Local database</string>
+    <string name="data_add">Add entry</string>
+    <string name="data_clear">Clear</string>
+    <string name="data_explanation">Entries are written to Room. Force-stop the app and reopen it: they are still here.</string>
+    <string name="data_loading">Loading entries</string>
+    <string name="data_empty_title">No entries yet</string>
+    <string name="data_empty_description">Add one to write a row through the DAO.</string>
+
+    <!-- Network -->
+    <string name="network_title">Network</string>
+    <string name="network_connectivity">Connectivity</string>
+    <string name="network_status_checking">Checking…</string>
+    <string name="network_status_online">Online</string>
+    <string name="network_status_offline">Offline</string>
+    <string name="network_status_explanation">A hint for the interface, not a precondition: the only way to know a request will succeed is to make it.</string>
+    <string name="network_request">Sample request</string>
+    <string name="network_send">Send request</string>
+    <string name="network_result_idle">No request sent yet.</string>
+    <string name="network_result_in_flight">Sending…</string>
+    <string name="network_result_success">Success: %1$s</string>
+    <string name="network_error_no_connection">No connection. Check your network and try again.</string>
+    <string name="network_error_timeout">The server took too long to answer.</string>
+    <string name="network_error_http">The server answered with status %1$d.</string>
+    <string name="network_error_malformed">The response could not be read.</string>
+    <string name="network_error_unexpected">Something went wrong.</string>
+
+    <!-- Telemetry and reminders -->
+    <string name="infra_title">Telemetry and reminders</string>
+    <string name="infra_telemetry">Telemetry</string>
+    <string name="infra_telemetry_explanation">Sends a screen view, an event, a breadcrumb and a non-fatal report. Without a google-services.json these go to the no-op implementations.</string>
+    <string name="infra_telemetry_send">Send test telemetry</string>
+    <string name="infra_telemetry_sent">Sent through the Analytics and CrashReporter contracts.</string>
+    <string name="infra_reminder">Local reminder</string>
+    <string name="infra_reminder_explanation">Schedules a notification about fifteen seconds from now. Timing is approximate: the work is deferrable.</string>
+    <string name="infra_reminder_permission_needed">Notifications are turned off, so nothing would be shown.</string>
+    <string name="infra_reminder_grant">Allow notifications</string>
+    <string name="infra_reminder_schedule">Schedule reminder</string>
+    <string name="infra_reminder_cancel">Cancel reminder</string>
+    <string name="infra_reminder_scheduled">Scheduled. Scheduling again replaces it.</string>
+    <string name="infra_reminder_turned_off">Nothing was scheduled: reminders are switched off in Settings.</string>
+    <string name="infra_reminder_notification_title">Demo reminder</string>
+    <string name="infra_reminder_notification_text">Tapping this opens the screen that scheduled it.</string>
+
+    <!-- Monetisation -->
+    <string name="monetisation_title">Ads and premium</string>
+    <string name="monetisation_premium_badge">PRO</string>
+    <string name="monetisation_status">Status</string>
+    <string name="monetisation_ads_available">Ads may be shown: consent resolved, not premium.</string>
+    <string name="monetisation_ads_suppressed_premium">Ads are suppressed because this account is premium.</string>
+    <string name="monetisation_ads_unavailable">Ads are unavailable: consent is unresolved, or advertising is off.</string>
+    <string name="monetisation_ads_suppressed_unknown">Ads are suppressed while Google Play is still being asked whether this account already paid.</string>
+    <string name="monetisation_actions_count">Qualifying actions since the last interstitial: %1$d</string>
+    <string name="monetisation_hints">Hints granted by rewarded ads: %1$d</string>
+    <string name="monetisation_privacy_options">Privacy options</string>
+    <string name="monetisation_ads">Ads</string>
+    <string name="monetisation_premium">Premium</string>
+    <string name="monetisation_record_action">Record a qualifying action</string>
+    <string name="monetisation_show_interstitial">Show interstitial</string>
+    <string name="monetisation_show_rewarded">Show rewarded ad</string>
+    <string name="monetisation_interstitial_shown">Interstitial shown.</string>
+    <string name="monetisation_interstitial_unavailable">Not shown: ads are unavailable for this user.</string>
+    <string name="monetisation_interstitial_throttled">Not shown: too soon, or not enough activity yet.</string>
+    <string name="monetisation_interstitial_failed">Could not load (code %1$d).</string>
+    <string name="monetisation_rewarded_earned">Reward earned: %1$d %2$s. The product decided that means a hint.</string>
+    <string name="monetisation_rewarded_dismissed">Closed without earning the reward.</string>
+    <string name="monetisation_rewarded_unavailable">Not shown: ads are unavailable for this user.</string>
+    <string name="monetisation_rewarded_failed">Could not load (code %1$d).</string>
+    <string name="monetisation_open_premium">Open the paywall</string>
+    <string name="home_open_monetisation">Ads and premium</string>
+    <string name="home_open_monetisation_subtitle">core:ads, core:billing and feature:premium</string>
+
+    <!-- Premium content, supplied by this product rather than by the base -->
+    <string name="premium_title">Product Base Demo Pro</string>
+    <string name="premium_subtitle">A sample paywall. The words, the benefits and the tone belong to the product; only the mechanism is reused.</string>
+    <string name="premium_benefit_ads">No advertising, anywhere in the app</string>
+    <string name="premium_benefit_support">Supports a one-developer project</string>
+    <string name="premium_benefit_lifetime">Paid once, kept forever</string>
+    <string name="premium_footnote">This demo is sideloaded and has no Play product, so purchases are expected to be unavailable here.</string>
+
+    <!-- Notification channels -->
+    <string name="notification_channel_reminders">Reminders</string>
+    <string name="notification_channel_reminders_description">Reminders you schedule in the demo</string>
+
+    <!-- Catalog -->
+    <string name="catalog_title">Catalog</string>
+    <string name="catalog_section_buttons">Buttons</string>
+    <string name="catalog_section_containers">Containers</string>
+    <string name="catalog_section_states">States</string>
+    <string name="catalog_section_list_items">List items</string>
+    <string name="catalog_primary_button">Primary action</string>
+    <string name="catalog_secondary_button">Secondary action</string>
+    <string name="catalog_disabled_button">Disabled</string>
+    <string name="catalog_card_title">Card</string>
+    <string name="catalog_card_body">Containers use the shared spacing scale and corner radii.</string>
+    <string name="catalog_show_dialog">Show dialog</string>
+    <string name="catalog_dialog_title">Dialog</string>
+    <string name="catalog_dialog_text">Dialogs take already-resolved text so they carry no strings of their own.</string>
+    <string name="catalog_dialog_confirm">Got it</string>
+    <string name="catalog_dialog_dismiss">Cancel</string>
+    <string name="catalog_loading_description">Loading example</string>
+    <string name="catalog_empty_title">Nothing here yet</string>
+    <string name="catalog_empty_description">Empty states explain what is missing and offer a way forward.</string>
+    <string name="catalog_empty_action">Add something</string>
+    <string name="catalog_error_title">Something went wrong</string>
+    <string name="catalog_error_description">Error states show a mapped message, never a raw exception.</string>
+    <string name="catalog_error_retry">Try again</string>
+    <string name="catalog_settings_item">Settings row</string>
+    <string name="catalog_settings_item_subtitle">With a subtitle and a tap target of at least 48dp</string>
+    <string name="catalog_switch_item">Switch row</string>
+    <string name="catalog_switch_item_subtitle">The whole row toggles, so screen readers announce one control</string>
+    <string name="catalog_premium_badge">PRO</string>
+
+    <!--
+      Onboarding content, supplied by this product. feature:onboarding ships the pager, the
+      buttons and the persistence, and none of these words.
+    -->
+    <string name="onboarding_capabilities_title">Capabilities, not a framework</string>
+    <string name="onboarding_capabilities_description">Every module here exists to make a dependency optional. An app includes what it needs and links nothing else.</string>
+    <string name="onboarding_settings_title">Settings you compose</string>
+    <string name="onboarding_settings_description">Rows appear because the product supplies them. No billing module means no upgrade row — there is no flag to remember to switch off.</string>
+    <string name="onboarding_privacy_title">Consent before anything else</string>
+    <string name="onboarding_privacy_description">Ads wait for consent, and for Google Play to say whether you already paid to remove them.</string>
+
+    <!-- Settings -->
+    <string name="settings_title">Settings</string>
+    <string name="settings_dismiss">OK</string>
+    <string name="settings_section_appearance">Appearance</string>
+    <string name="settings_section_notifications">Notifications</string>
+    <string name="settings_reminders">Reminders</string>
+    <string name="settings_reminders_subtitle">The app\'s own switch. Turning it off stops the demo scheduling anything.</string>
+    <string name="settings_system_notifications">System notification settings</string>
+    <string name="settings_system_notifications_subtitle">Channels and permission live in Android, not here</string>
+    <string name="settings_section_privacy">Privacy</string>
+    <string name="settings_privacy_options">Privacy options</string>
+    <string name="settings_privacy_options_subtitle">Change your advertising consent choice</string>
+    <string name="settings_privacy_policy">Privacy policy</string>
+    <string name="settings_terms">Terms of use</string>
+    <string name="settings_section_support">Support</string>
+    <string name="settings_premium">Remove ads</string>
+    <string name="settings_premium_subtitle">Opens the paywall. Navigation belongs to this app, not to either feature.</string>
+    <string name="settings_premium_owned">Full version</string>
+    <string name="settings_premium_owned_value">Active — thank you</string>
+    <string name="settings_restore">Restore purchase</string>
+    <string name="settings_rate">Rate this app</string>
+    <string name="settings_share">Share this app</string>
+    <string name="settings_section_about">About</string>
+    <string name="settings_version">Version</string>
+    <string name="settings_replay_onboarding">Replay onboarding</string>
+    <string name="settings_replay_onboarding_subtitle">Demo only: clears the completion flag and starts the tour again</string>
+    <string name="settings_share_text">Product Base Demo — a verification shell for the Android Product Base: %1$s</string>
+    <string name="settings_share_chooser">Share the demo</string>
+    <string name="settings_message_purchase_restored">Your purchase was found and restored.</string>
+    <string name="settings_message_nothing_to_restore">No previous purchase found for this account.</string>
+    <string name="settings_message_could_not_check">Could not reach Google Play, so your purchases could not be checked. Please try again.</string>
+    <string name="settings_message_review_unavailable">Google Play did not offer a review prompt. That is normal: it applies its own quota.</string>
+    <string name="settings_message_no_handler">Nothing on this device can handle that.</string>
+</resources>

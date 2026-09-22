@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <application>
+        <!--
+          The AdMob application id, which the Mobile Ads SDK reads at start-up and refuses to
+          initialise without.
+
+          Declared as a placeholder rather than a value, on purpose: a product that includes this
+          module *must* set `manifestPlaceholders["admobApplicationId"]` per build type, or the
+          build fails. That makes shipping a release with the test application id an explicit act
+          rather than an oversight.
+        -->
+        <meta-data
+            android:name="com.google.android.gms.ads.APPLICATION_ID"
+            android:value="${admobApplicationId}" />
+    </application>
+
+</manifest>

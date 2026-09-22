@@ -1,0 +1,158 @@
+#
+# Single source of truth for every dependency version in this build, including build-logic.
+# Never write a version literal in a build file. See ARCHITECTURE_PLAN.md §6 for the
+# rationale behind each choice — in particular why Kotlin is 2.3.21 and not the newest.
+#
+# Entries are added when a phase actually uses them, not in advance.
+#
+
+[versions]
+# --- Build toolchain --------------------------------------------------------
+# Pinned to 9.1.1. 9.3.1 was measured to work (it needs Gradle >= 9.5.0, and the wrapper is on
+# 9.7.0), so lint's AndroidGradlePluginVersion check reports a newer version is available — the
+# only lint finding in the build, and an accepted one: this is a deliberate pin, not a stale one.
+agp = "9.1.1"
+# Overrides the KGP 2.2.10 that AGP bundles: AGP 9 requires KSP >= 2.3.6, and the KSP
+# that ships with 2.2.10 cannot run under built-in Kotlin. See ARCHITECTURE_PLAN.md §0.3.
+kotlin = "2.3.21"
+ksp = "2.3.11"
+# Hilt >= 2.59.2 is required by AGP 9.
+hilt = "2.60.1"
+desugar = "2.1.5"
+
+# --- SDK levels -------------------------------------------------------------
+# Compose 1.12.0 (BOM 2026.08.00) requires compileSdk 37.
+compileSdk = "37"
+targetSdk = "37"
+minSdk = "26"
+
+# --- AndroidX / Compose -----------------------------------------------------
+composeBom = "2026.08.00"
+coreKtx = "1.19.0"
+activityCompose = "1.13.0"
+lifecycle = "2.11.0"
+navigation = "2.9.8"
+datastore = "1.2.1"
+androidxHilt = "1.4.0"
+room = "2.8.4"
+work = "2.11.2"
+
+# --- Kotlin libraries -------------------------------------------------------
+coroutines = "1.10.2"
+kotlinxSerialization = "1.11.0"
+
+# --- Network ----------------------------------------------------------------
+# OkHttp is BOM-pinned; it also overrides the OkHttp 4.12.0 that Retrofit 3 declares.
+okhttp = "5.4.0"
+retrofit = "3.0.0"
+
+# --- Monetisation -----------------------------------------------------------
+playBilling = "9.1.0"
+playServicesAds = "25.4.0"
+userMessagingPlatform = "4.0.0"
+
+# --- Play In-App Review -----------------------------------------------------
+playReview = "2.0.2"
+
+# --- Firebase ---------------------------------------------------------------
+firebaseBom = "34.17.0"
+googleServices = "4.5.0"
+firebaseCrashlyticsPlugin = "3.0.7"
+
+# --- Testing ----------------------------------------------------------------
+junit = "4.13.2"
+turbine = "1.2.1"
+androidxTestJunit = "1.3.0"
+androidxTestRunner = "1.7.0"
+# Real org.json for unit tests: the android.jar stub throws, and Purchase parses JSON.
+json = "20260814"
+
+# --- Quality ----------------------------------------------------------------
+spotless = "8.9.0"
+ktlint = "1.8.0"
+
+[libraries]
+# --- AndroidX ---------------------------------------------------------------
+androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
+androidx-activity-compose = { group = "androidx.activity", name = "activity-compose", version.ref = "activityCompose" }
+androidx-lifecycle-runtime-compose = { group = "androidx.lifecycle", name = "lifecycle-runtime-compose", version.ref = "lifecycle" }
+androidx-lifecycle-viewmodel-compose = { group = "androidx.lifecycle", name = "lifecycle-viewmodel-compose", version.ref = "lifecycle" }
+androidx-navigation-compose = { group = "androidx.navigation", name = "navigation-compose", version.ref = "navigation" }
+androidx-datastore-preferences = { group = "androidx.datastore", name = "datastore-preferences", version.ref = "datastore" }
+androidx-room-runtime = { group = "androidx.room", name = "room-runtime", version.ref = "room" }
+androidx-room-ktx = { group = "androidx.room", name = "room-ktx", version.ref = "room" }
+androidx-room-compiler = { group = "androidx.room", name = "room-compiler", version.ref = "room" }
+androidx-room-testing = { group = "androidx.room", name = "room-testing", version.ref = "room" }
+androidx-work-runtime-ktx = { group = "androidx.work", name = "work-runtime-ktx", version.ref = "work" }
+
+# --- Network ----------------------------------------------------------------
+okhttp-bom = { group = "com.squareup.okhttp3", name = "okhttp-bom", version.ref = "okhttp" }
+okhttp = { group = "com.squareup.okhttp3", name = "okhttp" }
+okhttp-logging-interceptor = { group = "com.squareup.okhttp3", name = "logging-interceptor" }
+okhttp-mockwebserver = { group = "com.squareup.okhttp3", name = "mockwebserver3-junit4" }
+retrofit = { group = "com.squareup.retrofit2", name = "retrofit", version.ref = "retrofit" }
+retrofit-converter-kotlinx-serialization = { group = "com.squareup.retrofit2", name = "converter-kotlinx-serialization", version.ref = "retrofit" }
+kotlinx-serialization-json = { group = "org.jetbrains.kotlinx", name = "kotlinx-serialization-json", version.ref = "kotlinxSerialization" }
+
+# --- Monetisation (only core:billing / core:ads may use these) --------------
+play-billing-ktx = { group = "com.android.billingclient", name = "billing-ktx", version.ref = "playBilling" }
+play-services-ads = { group = "com.google.android.gms", name = "play-services-ads", version.ref = "playServicesAds" }
+user-messaging-platform = { group = "com.google.android.ump", name = "user-messaging-platform", version.ref = "userMessagingPlatform" }
+
+# --- Play In-App Review (only core:review may use this) ---------------------
+play-review = { group = "com.google.android.play", name = "review", version.ref = "playReview" }
+
+# --- Firebase (only core:telemetry-firebase may use these) ------------------
+firebase-bom = { group = "com.google.firebase", name = "firebase-bom", version.ref = "firebaseBom" }
+firebase-analytics = { group = "com.google.firebase", name = "firebase-analytics" }
+firebase-crashlytics = { group = "com.google.firebase", name = "firebase-crashlytics" }
+
+# --- Compose (versions come from the BOM) -----------------------------------
+compose-bom = { group = "androidx.compose", name = "compose-bom", version.ref = "composeBom" }
+compose-ui = { group = "androidx.compose.ui", name = "ui" }
+compose-ui-graphics = { group = "androidx.compose.ui", name = "ui-graphics" }
+compose-ui-tooling = { group = "androidx.compose.ui", name = "ui-tooling" }
+compose-ui-tooling-preview = { group = "androidx.compose.ui", name = "ui-tooling-preview" }
+compose-ui-test-manifest = { group = "androidx.compose.ui", name = "ui-test-manifest" }
+compose-material3 = { group = "androidx.compose.material3", name = "material3" }
+compose-material-icons-core = { group = "androidx.compose.material", name = "material-icons-core" }
+
+# --- Dependency injection ---------------------------------------------------
+hilt-android = { group = "com.google.dagger", name = "hilt-android", version.ref = "hilt" }
+hilt-compiler = { group = "com.google.dagger", name = "hilt-android-compiler", version.ref = "hilt" }
+androidx-hilt-navigation-compose = { group = "androidx.hilt", name = "hilt-navigation-compose", version.ref = "androidxHilt" }
+
+# --- Kotlin -----------------------------------------------------------------
+kotlinx-coroutines-core = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-core", version.ref = "coroutines" }
+kotlinx-coroutines-android = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-android", version.ref = "coroutines" }
+
+# --- Java desugaring --------------------------------------------------------
+desugar-jdk-libs = { group = "com.android.tools", name = "desugar_jdk_libs", version.ref = "desugar" }
+
+# --- Testing ----------------------------------------------------------------
+junit = { group = "junit", name = "junit", version.ref = "junit" }
+kotlinx-coroutines-test = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-test", version.ref = "coroutines" }
+turbine = { group = "app.cash.turbine", name = "turbine", version.ref = "turbine" }
+androidx-test-ext-junit = { group = "androidx.test.ext", name = "junit", version.ref = "androidxTestJunit" }
+androidx-test-runner = { group = "androidx.test", name = "runner", version.ref = "androidxTestRunner" }
+json = { group = "org.json", name = "json", version.ref = "json" }
+
+# --- Gradle plugin artifacts, for build-logic only --------------------------
+android-gradlePlugin = { group = "com.android.tools.build", name = "gradle", version.ref = "agp" }
+# AGP 9 moved part of the DSL (e.g. the Lint type) out of gradle-api into gradle-common-api.
+android-gradleCommonApi = { group = "com.android.tools.build", name = "gradle-common-api", version.ref = "agp" }
+kotlin-gradlePlugin = { group = "org.jetbrains.kotlin", name = "kotlin-gradle-plugin", version.ref = "kotlin" }
+androidx-room-gradlePlugin = { group = "androidx.room", name = "room-gradle-plugin", version.ref = "room" }
+
+[plugins]
+android-application = { id = "com.android.application", version.ref = "agp" }
+android-library = { id = "com.android.library", version.ref = "agp" }
+kotlin-compose = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
+kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
+ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
+hilt = { id = "com.google.dagger.hilt.android", version.ref = "hilt" }
+room = { id = "androidx.room", version.ref = "room" }
+spotless = { id = "com.diffplug.spotless", version.ref = "spotless" }
+# Applied only when a google-services.json is present. See demo/build.gradle.kts.
+google-services = { id = "com.google.gms.google-services", version.ref = "googleServices" }
+firebase-crashlytics = { id = "com.google.firebase.crashlytics", version.ref = "firebaseCrashlyticsPlugin" }

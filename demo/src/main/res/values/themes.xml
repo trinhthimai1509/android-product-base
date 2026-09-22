@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--
+      Only the window theme used before Compose takes over. All in-app styling comes from
+      ProductBaseTheme; nothing here should grow beyond the launch window appearance.
+    -->
+    <style name="Theme.ProductBaseDemo" parent="android:Theme.Material.Light.NoActionBar">
+        <item name="android:windowBackground">@android:color/white</item>
+    </style>
+</resources>

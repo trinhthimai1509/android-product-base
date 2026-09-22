@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!--
+      Required by the Firebase SDKs: analytics and crash reports are uploaded from a background
+      task. Declared here rather than in the product's manifest so that a product which drops
+      this module also drops the permissions — and so that lint can see they are satisfied.
+
+      All three are normal permissions: no runtime request, no permission dialog.
+    -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+
+</manifest>

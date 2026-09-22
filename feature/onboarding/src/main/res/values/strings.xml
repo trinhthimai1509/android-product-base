@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--
+      Mechanism strings only: the words on the buttons that move the flow along. Everything the
+      product says about itself — titles, descriptions, artwork — is supplied through
+      OnboardingPage and never lives here. A product that wants different wording overrides these
+      names in its own res/values.
+    -->
+    <string name="pb_onboarding_skip">Skip</string>
+    <string name="pb_onboarding_next">Next</string>
+    <string name="pb_onboarding_finish">Get started</string>
+    <string name="pb_onboarding_page_indicator">Page %1$d of %2$d</string>
+</resources>

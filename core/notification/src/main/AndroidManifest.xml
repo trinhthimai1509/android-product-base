@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!--
+      Declared by the capability that needs it: including this module is all a product has to do,
+      and excluding it keeps the permission out of the merged manifest and off the Play listing.
+
+      Runtime-requested on Android 13+; see NotificationPermission.kt.
+
+      Deliberately absent: SCHEDULE_EXACT_ALARM / USE_EXACT_ALARM. Reminders here are deferrable
+      work, and exact alarms are a policy-reviewed permission that most products cannot justify.
+    -->
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+
+</manifest>

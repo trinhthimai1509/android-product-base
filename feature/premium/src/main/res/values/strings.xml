@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--
+      Only mechanism strings live here: what the billing system did, in neutral wording.
+      Everything that sells the product — title, benefits, tone — is supplied by the product
+      through PremiumContent, so no two apps built on this base share a paywall.
+    -->
+    <string name="pb_premium_badge">PRO</string>
+    <string name="pb_premium_buy">Upgrade</string>
+    <string name="pb_premium_buy_with_price">Upgrade for %1$s</string>
+    <string name="pb_premium_restore">Restore purchase</string>
+    <string name="pb_premium_owned">You have the full version. Thank you.</string>
+    <string name="pb_premium_pending">Your payment is being processed. This can take a little while.</string>
+    <string name="pb_premium_unavailable">Purchases are unavailable on this device right now.</string>
+    <string name="pb_premium_loading_price">Checking price…</string>
+    <string name="pb_premium_message_completed">Purchase complete. Thank you.</string>
+    <string name="pb_premium_message_pending">Payment started. We will unlock it as soon as it clears.</string>
+    <string name="pb_premium_message_already_owned">You already own this. It has been restored.</string>
+    <string name="pb_premium_message_nothing_to_restore">No previous purchase found for this account.</string>
+    <string name="pb_premium_message_could_not_check">Could not reach Google Play, so your purchases could not be checked. Please try again.</string>
+    <string name="pb_premium_message_error_unavailable">Purchases are not available on this device.</string>
+    <string name="pb_premium_message_error_disconnected">Could not reach Google Play. Please try again.</string>
+    <string name="pb_premium_message_error_network">No connection. Please check your network.</string>
+    <string name="pb_premium_message_error_product">This purchase is not available at the moment.</string>
+    <string name="pb_premium_message_error_generic">Something went wrong. Please try again.</string>
+    <string name="pb_premium_dismiss">OK</string>
+</resources>
