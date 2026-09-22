@@ -29,7 +29,10 @@ classification table in [PRODUCT_INTEGRATION.md](PRODUCT_INTEGRATION.md#consumer
 ## 2. Gradle wiring
 
 - [ ] `settings.gradle.kts`: `pluginManagement { includeBuild("../android-product-base/build-logic") }`
-- [ ] `settings.gradle.kts`: version catalog `from(files("../android-product-base/gradle/libs.versions.toml"))`
+- [ ] Copy `gradle/libs.versions.toml` from the Base and **do not** declare an explicit
+      `versionCatalogs { from(...) }` block — it conflicts with `build-logic`'s own catalog
+      declaration (`Multiple 'from' invocations`). See the warning in
+      [QUICK_START.md](QUICK_START.md#2-settingsgradlekts).
 - [ ] `settings.gradle.kts`: map `:core` and `:feature` containers **and** each module you need
       (the exact block is in [QUICK_START.md](QUICK_START.md#2-settingsgradlekts))
 - [ ] Root `build.gradle.kts`: `buildscript { classpath(libs.kotlin.gradlePlugin) }` and the

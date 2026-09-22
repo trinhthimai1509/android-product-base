@@ -45,10 +45,12 @@ workspace/
 cd workspace
 mkdir -p consumer-app/app/src/main/kotlin/com/example/tracker
 cd consumer-app
-cp -R ../android-product-base/gradle ./gradle          # wrapper + daemon JVM criteria
-cp ../android-product-base/gradlew ./gradlew           # do NOT copy libs.versions.toml
-rm gradle/libs.versions.toml                           # the Base owns versions; see step 2
+cp -R ../android-product-base/gradle ./gradle          # wrapper + daemon JVM criteria + catalog
+cp ../android-product-base/gradlew ./gradlew
 ```
+
+Keep `gradle/libs.versions.toml` — do **not** delete it. Copy it byte-identical from the Base and
+leave it there; see step 2 for why.
 
 > The `gradle/gradle-daemon-jvm.properties` you just copied is what makes the daemon run on Java
 > 21. Without it the build fails before it compiles anything.
@@ -63,6 +65,20 @@ sdk.dir=/Users/you/Library/Android/sdk
 
 This is the whole consumption mechanism. It does three things: borrows the Base's convention
 plugins, borrows its version catalog, and maps the Base's Gradle projects into this build.
+
+> **Do not add an explicit `versionCatalogs { create("libs") { from(...) } }` block.** It is
+> tempting — it looks like the obvious way to "borrow" the Base's catalog — but it fails once
+> `build-logic` is included below via `pluginManagement.includeBuild`: Base's own
+> `build-logic/settings.gradle.kts` *also* declares a catalog named `"libs"`, and Gradle 9.7
+> rejects a second explicit `from()` on the same catalog name with `Multiple 'from' invocations`,
+> even though both calls point at the byte-identical file. This is confirmed against a real
+> consumer (Lucky Wheel), not theoretical.
+>
+> The fix is to declare nothing: keep the copied `gradle/libs.versions.toml` file in place (step 1)
+> and let Gradle's default convention — any `gradle/libs.versions.toml` on disk is automatically
+> the `"libs"` catalog — pick it up for this build's own scripts. That's exactly how the Base's own
+> root build avoids declaring anything explicit for itself, and it sidesteps the conflict
+> entirely. An explicit `versionCatalogs` block below is a bug, not a style choice.
 
 ```kotlin
 // Where the Base checkout lives, relative to this file. Read-only: never edit anything under it.
@@ -84,12 +100,8 @@ dependencyResolutionManagement {
         google()
         mavenCentral()
     }
-    // The Base owns every dependency version, including the ones this product uses directly.
-    versionCatalogs {
-        create("libs") {
-            from(files("../android-product-base/gradle/libs.versions.toml"))
-        }
-    }
+    // No explicit versionCatalogs block here — see the warning above. The gradle/libs.versions.toml
+    // copied into this project in step 1 is picked up automatically as the "libs" catalog.
 }
 
 rootProject.name = "consumer-app"
